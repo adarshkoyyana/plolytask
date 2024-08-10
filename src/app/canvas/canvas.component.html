@@ -1,0 +1,20 @@
+<div class="wrapper">
+    <div class="column">
+      <ng2-konva [config]="stageConfig" (mousedown)="handleMouseDown($event)" (mousemove)="handleMouseMove($event)">
+        <ng2-konva-layer>
+          <ng2-konva-image [config]="imageConfig"></ng2-konva-image>
+          <app-polygon-annotation [points]="points" [flattenedPoints]="flattenedPoints"
+                                  (pointDragMove)="handlePointDragMove($event)">
+          </app-polygon-annotation>
+        </ng2-konva-layer>
+      </ng2-konva>
+      <div class="button-container">
+        <app-button name="Undo" (click)="undo()"></app-button>
+        <app-button name="Reset" (click)="reset()"></app-button>
+      </div>
+    </div>
+    <div class="data-container">
+      <pre>{{ points | json }}</pre>
+    </div>
+  </div>
+  

@@ -1,0 +1,7 @@
+<ng2-konva-group *ngIf="flattenedPoints.length" [config]="groupConfig" (dragend)="handleGroupDragEnd($event)">
+    <ng2-konva-line [config]="lineConfig"></ng2-konva-line>
+    <ng2-konva-circle *ngFor="let point of points; let i = index" [config]="getPointConfig(point, i)"
+                      (dragmove)="pointDragMove.emit($event)">
+    </ng2-konva-circle>
+  </ng2-konva-group>
+  
